@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react';
 import axios from 'axios';
+import "./Chatbot.css";
 
 const Chatbot = () => {
   const [messages, setMessages] = useState([]);
@@ -11,6 +12,7 @@ const Chatbot = () => {
 
     const userMessage = { role: 'user', content: input };
     setMessages([...messages, userMessage]);
+    setInput('');
 
     try {
       const response = await axios.post('http://127.0.0.1:8000/chatbot/api/chat/', {
